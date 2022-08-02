@@ -1,4 +1,4 @@
-package com.zhen.user.config;
+package com.zhen.payment.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -13,4 +13,5 @@ public class RestTemplateConfig {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
 }

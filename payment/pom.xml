@@ -73,26 +73,18 @@
             <artifactId>commons-pool2</artifactId>
         </dependency>
 
-        <!-- FastJson2 -->
+        <!-- nacos -->
         <dependency>
-            <groupId>com.alibaba.fastjson2</groupId>
-            <artifactId>fastjson2</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- SpringCloud -->
+        <!-- 负载均衡器，ribbon已经被移除 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2021.0.3</version>
-            <type>pom</type>
-            <scope>import</scope>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
         </dependency>
-
-        <!-- eureka客户端 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
+        
     </dependencies>
 
     <build>

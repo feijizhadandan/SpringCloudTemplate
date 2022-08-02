@@ -1,5 +1,13 @@
 server:
-  port: 11002
+  port: 11001
+
+# 开启debug模式日志
+debug: true
+
+mybatis-plus:
+  configuration:
+    # 日志输出
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 spring:
   # 将Druid设置为数据库连接池技术
@@ -10,11 +18,14 @@ spring:
     username: root
     password: Lingling1314~
   application:
-    # 注册微服务的服务名称
-    name: userserver
-
-eureka:
-  client:
-    service-url:
-      # 注册中心(eureka)的地址信息
-      defaultZone: http://127.0.0.1:11000/eureka
+    # 微服务名称
+    name: userService
+  cloud:
+    nacos:
+      # nacos 服务端地址
+      server-addr: localhost:8848
+      discovery:
+        # 微服务 所在集群名称
+        cluster-name: Guangzhou
+        # 要在同一个命名空间才可以找到服务实例
+        namespace: 2dc84f7b-dfe7-4f57-bf43-cd94a6554955
