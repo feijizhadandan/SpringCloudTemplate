@@ -1,0 +1,20 @@
+server:
+  port: 11001
+  
+spring:
+  # 将Druid设置为数据库连接池技术
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.106.122.140:3306/cloud_payment?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: Lingling1314~
+  application:
+    # 注册微服务的服务名称
+    name: paymentserver
+
+eureka:
+  client:
+    service-url:
+      # 注册中心(eureka)的地址信息
+      defaultZone: http://127.0.0.1:11000/eureka
