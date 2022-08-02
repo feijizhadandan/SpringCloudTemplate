@@ -17,15 +17,3 @@ spring:
     url: jdbc:mysql://47.106.122.140:3306/cloud_payment?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
     username: root
     password: Lingling1314~
-  application:
-    # 微服务名称
-    name: paymentService
-  cloud:
-    nacos:
-      # nacos 服务端地址
-      server-addr: localhost:8848
-      discovery:
-        # 微服务 所在集群名称
-        cluster-name: Guangzhou
-        # 要在同一个命名空间才可以找到服务实例 
-        namespace: 2dc84f7b-dfe7-4f57-bf43-cd94a6554955
