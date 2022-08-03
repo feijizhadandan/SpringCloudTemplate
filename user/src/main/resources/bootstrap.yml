@@ -12,10 +12,10 @@ spring:
       server-addr: 47.106.122.140:8848
       discovery:
         # 集群名称
-        cluster-name: Guangzhou
+        # cluster-name: Guangzhou
         # 命名空间（同一个命名空间才可以找到服务实例）
-        namespace: e2b20432-9be8-44b9-8879-d3d25d0446d2
+        # namespace: e2b20432-9be8-44b9-8879-d3d25d0446d2
       config:
         # 统一配置文件格式
         file-extension: yaml
-        namespace: e2b20432-9be8-44b9-8879-d3d25d0446d2
+        # namespace: e2b20432-9be8-44b9-8879-d3d25d0446d2

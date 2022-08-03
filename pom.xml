@@ -26,6 +26,7 @@
     <modules>
         <module>payment</module>
         <module>user</module>
+        <module>gateway</module>
     </modules>
    
     <dependencyManagement>

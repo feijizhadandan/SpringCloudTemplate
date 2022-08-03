@@ -1,8 +1,9 @@
 SpringCloud
 微服务框架模板
 
+***
 
-# 关于Nacos的知识点
+# Nacos
 
 Eureka：更像是微服务中的一个模块，独立性不高
 
@@ -41,9 +42,9 @@ Nacos：更像是独立的一个组件，依附于服务器而不是项目，微
                 反向代理：统一管理集群（比如三个nacos服务ip、端口都不同，但是通过Nginx可以设定一个统一的入口，然后Nginx负责分发）
                 负载均衡：
 
+***
 
-
-# 关于Feign的知识点
+# Feign
 
 OpenFeign：通过Restful风格的 Client接口，实现远程调用
 
@@ -55,3 +56,24 @@ OpenFeign：通过Restful风格的 Client接口，实现远程调用
 ### 优化
     1、引入HttpClient连接池, 在配置文件中进行设置
     2、可以将所有Client整合到一个模块，其他模块通过调用该包的接口来实现远程调用（实现Client接口的统一管理）
+
+***
+
+# Gateway
+
+Gateway：作为微服务的阀门，主要功能有：路由选择、负载均衡、身份验证和权限校验（这一点还需要和单体的SpringSecurity进行对比学习）  
+同时网关的使用也和Nacos离不开关系，其路由功能可以直接通过nacos中的服务管理来进行指向
+
+### 基本使用：
+    - 主要是在application.yml中的配置：
+        1、路由的唯一标识：
+            id: user-service
+        2、路由的目标地址（nacos服务管理）：
+            uri: lb://userService
+        3、路由的断言，判断请求路径是否符合
+            predicates: 
+                - Path=/user/**  
+
+    - 过滤器：路由过滤器、默认过滤器、全局过滤器（自定义）  
+  
+    - cors跨域设置（application.yml中配置）

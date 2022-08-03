@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/user")
@@ -17,8 +18,10 @@ public class UserController {
     private PaymentClient paymentClient;
     
     @GetMapping("/{id}")
-    public Payment test(@PathVariable Long id) {
+    public Payment test(@PathVariable Long id, HttpServletRequest request) {
         Payment payment = paymentClient.getPayment(id);
+        String name = request.getHeader("name");
+        System.out.println(name);
         return payment;
     }
     

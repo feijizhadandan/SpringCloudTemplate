@@ -1,0 +1,44 @@
+server:
+  port: 11000
+  
+# 开启debug模式日志
+debug: true
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      # nacos地址
+      server-addr: 47.106.122.140:8848
+      discovery:
+        # namespace: e2b20432-9be8-44b9-8879-d3d25d0446d2
+    gateway:
+      # 配置路由
+      routes: 
+          # 唯一路由标识
+        - id: user-service
+          # 路由的目标地址
+          uri: lb://userService
+          # 断言：判断请求路径是否符合
+          predicates: 
+            - Path=/user/**
+        - id: payment-service
+          uri: lb://paymentService
+          predicates:
+            - Path=/payment/**
+      # 默认过滤器，所有路由都要经过
+      default-filters: 
+        - AddRequestHeader=name, zhen
+      # 全局的跨域处理
+      globalcors:
+        # 解决options请求被拦截问题
+        add-to-simple-url-handler-mapping: true
+        cors-configurations: 
+            '[/**]':
+              allowedOrigins: # 允许哪些跨域请求
+                - "http://localhost:8080"
+                - "http://localhost:8081"
+              allowedMethods: # 允许跨域的ajax的请求方式
+                - "GET"
+                - "POST"
