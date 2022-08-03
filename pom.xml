@@ -26,7 +26,6 @@
     <modules>
         <module>payment</module>
         <module>user</module>
-        <module>eureka-server</module>
     </modules>
    
     <dependencyManagement>

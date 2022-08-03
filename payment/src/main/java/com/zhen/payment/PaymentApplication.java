@@ -2,7 +2,11 @@ package com.zhen.payment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
+
+// 开启Feign服务
+@EnableFeignClients
 @SpringBootApplication
 public class  PaymentApplication {
 
